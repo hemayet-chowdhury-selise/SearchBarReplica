@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SearchBarReplica"
+    }
+  },
+  "defaultProject": "SearchBarReplica",
+  "cli": {
+    "analytics": "c8985b6b-cc93-4cae-8805-b1cc4fda177f"
+  }
 }
