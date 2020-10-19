@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchFilterPipe} from '../filter.pipe';
 import { Pipe, PipeTransform } from '@angular/core';
+import { DataserviceService } from '../dataservice.service';
 
 @Component({
   selector: 'app-custom-bar',
@@ -18,13 +19,12 @@ export class CustomBarComponent implements OnInit {
 
 
 
-  public searchList = [
-    'Angular', 'React', 'Vue', 'Node', 'Angular Material', 'Semantic HTML', 'Hyper Text Mark-up Language', 'Hemayet', 'Abdun Nahid', 'Asif Adham'
-  ];
+ searchList ;
 
-  constructor() { }
+  constructor(private dataService : DataserviceService) { }
 
   ngOnInit(): void {
+    this.searchList = this.dataService.searchList;
   }
 
   toggle(){
