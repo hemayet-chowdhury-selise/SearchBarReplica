@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import {SearchFilterPipe} from '../filter.pipe';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-custom-bar',
   templateUrl: './custom-bar.component.html',
-  styleUrls: ['./custom-bar.component.scss']
+  styleUrls: ['./custom-bar.component.scss'],
+  providers: [ SearchFilterPipe ]
 })
+
+
 export class CustomBarComponent implements OnInit {
 
   dropDownFlag = false;
+  searchTerm = "";
+
 
 
 
@@ -25,6 +32,13 @@ export class CustomBarComponent implements OnInit {
   }
 
   closeDropDown(){
+    this.dropDownFlag = false;
+  }
+
+  selectValue(s){
+
+    this.searchTerm = s;
+    console.log(this.searchTerm);
     this.dropDownFlag = false;
   }
 

@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CustomBarComponent } from './custom-bar/custom-bar.component';
+import { SearchFilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { ClickOutsideDirective } from './click-outside.directive';
 
 
 @NgModule({
@@ -13,11 +16,16 @@ import { CustomBarComponent } from './custom-bar/custom-bar.component';
 
     CustomBarComponent,
 
+    SearchFilterPipe,
+
+    ClickOutsideDirective,
+
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
