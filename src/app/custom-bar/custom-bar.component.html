@@ -1,15 +1,21 @@
-<div style=" margin-left: 38em ; margin-top : 8em">
-  <img width="100" alt="Angular Logo"
+
+
+<div class="logo">
+  <img  alt="Angular Logo"
        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 
 </div>
   <div class="bar">
-        <input (focus)="toggle()" (blur)="toggle()"  class="searchbar" type="text" title="Search">
+        <input appClickOutside
+        (clickOutside)="dropDownFlag=false"  (click) = "dropDownFlag=true" class="searchbar" type="text" title="Search" [(ngModel)]="searchTerm">
         <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
         <div *ngIf="dropDownFlag" class="dropdown">
           <div>
-            <div class="item" *ngFor="let s of searchList">
-              {{s}}
+            <div (click)="selectValue(s)" class="item" *ngFor="let s of searchList | searchFilter: searchTerm">
+
+                {{s}}
+
+
             </div>
 
           </div>
