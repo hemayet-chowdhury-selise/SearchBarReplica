@@ -6,7 +6,8 @@
 
 </div>
   <div class="bar">
-        <input appClickOutside
+        <label for="searchbar"> <i class="fa fa-search fa-lg icon" aria-hidden="true"></i> </label>
+        <input id="searchbar" appClickOutside
         (clickOutside)="dropDownFlag=false"  (click) = "dropDownFlag=true" class="searchbar" type="text" title="Search" [(ngModel)]="searchTerm">
         <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
         <div *ngIf="dropDownFlag" class="dropdown">
