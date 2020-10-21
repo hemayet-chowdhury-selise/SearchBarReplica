@@ -29,6 +29,15 @@
 
 }
 
+.icon-div-right-item{
+
+  margin-left: 7px ;
+  margin-right: 15px;
+  margin-top: 0px;
+  float: right;
+
+}
+
 .icon-div-display{
   display: none;
 
@@ -38,9 +47,41 @@
   color: grey;
   font-size: 16px;
 }
+
+
+
+.icon-clear{
+  cursor: default;
+  font-size: 16px;
+
+  margin-left: 2px;
+  margin-top: 2px;
+  z-index: 2;
+
+}
+// .icon-clear:hover{
+//   background: grey;
+
+//   border-radius: 50%;
+
+// }
+
+.icon-surround{
+
+  height:20px;
+  width: 20px;
+
+}
+.icon-surround:hover{
+  background:  #d3d3d3;
+
+  border-radius: 50%;
+}
+
 .icon{
   color: grey;
   font-size: 21px;
+
 
 
 }
@@ -63,7 +104,7 @@
 
 
   outline:none;
-  border-radius: 18px;
+  border-radius: 12px;
 
 
   //border-bottom: 1px solid #dcdcdc;
@@ -96,7 +137,7 @@
 
 
 .item:focus {
-  background: #C2C2C2;
+  background:   #ECECEC;
   outline: none;
 
 

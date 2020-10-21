@@ -75,6 +75,10 @@ export class CustomBarComponent implements OnInit {
     }
   }
 
+  onClear(){
+    console.log("remove item");
+  }
+
 
 
 }
