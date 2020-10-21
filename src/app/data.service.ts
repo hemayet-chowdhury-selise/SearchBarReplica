@@ -10,4 +10,9 @@ export class DataserviceService {
   ];
 
   constructor() { }
+
+  getList(){
+    return [...this.searchList];
+  }
+
 }
