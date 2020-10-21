@@ -8,8 +8,9 @@
 
   <div  class="bar">
 
-        <label for="searchbar"> <i class="fa fa-search fa-lg icon" aria-hidden="true"></i> </label>
+       <div class="icon-div" ><i class="material-icons icon">search</i></div>
         <input
+        [placeholder]="!showDropDown?'Search Google or type a URL':''"
         (keydown)="onSearchBarKeyDown($event)"
         #searchBar
         id="searchbar"
@@ -20,11 +21,10 @@
         type="text"
         title="Search"
         [(ngModel)]="searchTerm">
-        <a href="#">
-        <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice">
-        </a>
+        <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
 
-        <div *ngIf="showDropDown" class="dropdown">
+
+        <div *ngIf="showDropDown" >
           <div>
             <div  (mouseover)="onMouseOver(i)"
             (keydown)="onItemKeyDown($event, s)"
@@ -33,7 +33,9 @@
             (click)="selectValue(s)"
             class="item"
             *ngFor="let s of searchList | searchFilter: searchTerm; let i = index">
+            <div class="icon-div-item "><i class="material-icons icon-clock">access_time</i></div>
               {{s}}
+            <div class="icon-div-right-item "><div *ngIf="index==i" class="icon-surround"><div (click)="removeItem($event)" class="material-icons icon-clear">clear</div></div></div>
             </div>
           </div>
         </div>

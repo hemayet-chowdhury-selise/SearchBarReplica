@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {SearchFilterPipe} from '../filter.pipe';
 import { Pipe, PipeTransform } from '@angular/core';
-import { DataserviceService } from '../dataservice.service';
+import { DataserviceService } from '../data.service';
 
 @Component({
   selector: 'app-custom-bar',
@@ -26,7 +26,7 @@ export class CustomBarComponent implements OnInit {
   constructor(private dataService : DataserviceService, private ElementRef:ElementRef) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.searchList;
+    this.searchList = this.dataService.getList();
 
   }
 
@@ -73,6 +73,12 @@ export class CustomBarComponent implements OnInit {
     else if(event.key=="Enter"){
       this.selectValue(s);
     }
+  }
+
+  removeItem(event: Event){
+    event.stopPropagation();
+    console.log("clear clicked");
+    this.searchList.splice(this.index,1);
   }
 
 
