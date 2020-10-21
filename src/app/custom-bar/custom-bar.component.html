@@ -5,22 +5,37 @@
        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 
 </div>
-  <div class="bar">
+
+  <div  class="bar">
+
         <label for="searchbar"> <i class="fa fa-search fa-lg icon" aria-hidden="true"></i> </label>
-        <input id="searchbar" appClickOutside
-        (clickOutside)="dropDownFlag=false"  (click) = "dropDownFlag=true" class="searchbar" type="text" title="Search" [(ngModel)]="searchTerm">
-        <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
-        <div *ngIf="dropDownFlag" class="dropdown">
+        <input
+        (keydown)="onSearchBarKeyDown($event)"
+        #searchBar
+        id="searchbar"
+        appClickOutside
+        (clickOutside)="showDropDown=false"
+        (click) = "showDropDown=true"
+        class="searchbar"
+        type="text"
+        title="Search"
+        [(ngModel)]="searchTerm">
+        <a href="#">
+        <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice">
+        </a>
+
+        <div *ngIf="showDropDown" class="dropdown">
           <div>
-            <div (click)="selectValue(s)" class="item" *ngFor="let s of searchList | searchFilter: searchTerm">
-
-                {{s}}
-
-
+            <div  (mouseover)="onMouseOver(i)"
+            (keydown)="onItemKeyDown($event, s)"
+            tabindex="0"
+            #suggestions
+            (click)="selectValue(s)"
+            class="item"
+            *ngFor="let s of searchList | searchFilter: searchTerm; let i = index">
+              {{s}}
             </div>
-
           </div>
-
         </div>
   </div>
 

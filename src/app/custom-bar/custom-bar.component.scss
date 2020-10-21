@@ -46,9 +46,6 @@
   position: absolute;
   z-index: 1;
   width: 570px;
-
-  max-height: 300px;
-  overflow-y: auto;
   background: white;
   border-radius:10px;
   border:1px solid #dcdcdc;
@@ -59,7 +56,13 @@
   font-family: sans-serif;
 }
 
-.item:hover{
+
+.item:focus {
   background: #C2C2C2;
+  outline: none;
+
 }
+
+
+
 
