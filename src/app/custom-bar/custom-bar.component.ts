@@ -26,11 +26,16 @@ export class CustomBarComponent implements OnInit {
   constructor(private dataService : DataserviceService, private ElementRef:ElementRef) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.getList();
+    this.searchList = this.dataService.searchList;
 
   }
 
   //arrow navigation functions
+
+  onSearchBarClick(){
+    this.showDropDown = true;
+    this.index = -1;
+  }
 
   onMouseOver(index: number){
 
@@ -52,9 +57,11 @@ export class CustomBarComponent implements OnInit {
     console.log(event.key);
     if(event.key=="ArrowDown"){
       this.boxes.toArray()[0].nativeElement.focus();
+      this.index=0;
     }
     if(event.key=="ArrowUp"){
       this.boxes.toArray()[this.boxes.toArray().length-1].nativeElement.focus();
+      this.index=6;
     }
   }
 
@@ -67,8 +74,8 @@ export class CustomBarComponent implements OnInit {
     }
     else if(event.key=="ArrowUp"){
       if(this.index==0) this.index = this.boxes.toArray().length-1;
-      else this.index=((this.index-1)%this.boxes.toArray().length)
-      this.boxes.toArray()[this.index].nativeElement.focus()
+      else this.index=((this.index-1)%this.boxes.toArray().length);
+      this.boxes.toArray()[this.index].nativeElement.focus();
     }
     else if(event.key=="Enter"){
       this.selectValue(s);
@@ -77,7 +84,7 @@ export class CustomBarComponent implements OnInit {
 
   removeItem(event: Event){
     event.stopPropagation();
-    console.log("clear clicked");
+
     this.searchList.splice(this.index,1);
   }
 
