@@ -16,7 +16,7 @@
         id="searchbar"
         appClickOutside
         (clickOutside)="showDropDown=false"
-        (click) = "showDropDown=true"
+        (click) = "onSearchBarClick()"
         class="searchbar"
         type="text"
         title="Search"
@@ -33,9 +33,9 @@
             (click)="selectValue(s)"
             class="item"
             *ngFor="let s of searchList | searchFilter: searchTerm; let i = index">
-            <div class="icon-div-item "><i class="material-icons icon-clock">access_time</i></div>
+            <div class="icon-div-left-item "><i class="material-icons icon-clock">access_time</i></div>
               {{s}}
-            <div class="icon-div-right-item "><div *ngIf="index==i" class="icon-surround"><div (click)="removeItem($event)" class="material-icons icon-clear">clear</div></div></div>
+            <div class="icon-div-right-item "><div *ngIf="index==i && searchTerm==''" class="icon-surround"><div (click)="removeItem($event)" class="material-icons icon-clear">clear</div></div></div>
             </div>
           </div>
         </div>
