@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } fro
 import {SearchFilterPipe} from '../filter.pipe';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-bar',
@@ -25,7 +26,7 @@ export class CustomBarComponent implements OnInit {
   focusFlag = false;
   searchList ;
 
-  constructor(private dataService : DataService, private ElementRef:ElementRef) { }
+  constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
     this.searchList = this.dataService.searchList;
@@ -114,6 +115,7 @@ export class CustomBarComponent implements OnInit {
 
       this.selectValue(this.boxes.toArray()[this.index].nativeElement.textContent);
       this.innerSearchTerm = this.searchTerm;
+      this.router.navigate(['/results'],  { queryParams: { search: this.innerSearchTerm } });
 
     }
     else if(event.key=="ArrowLeft"){
