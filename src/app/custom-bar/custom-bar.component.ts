@@ -148,8 +148,8 @@ export class CustomBarComponent implements OnInit {
     this.searchList.splice(this.index,1);
   }
 
-  onItemClick(s : string): void{
-    this.selectValue(s);
+  onItemClick(s): void{
+    this.selectValue(this.boxes.toArray()[this.index].nativeElement.textContent);
     this.innerSearchTerm = this.searchTerm;
     this.router.navigate(['/readmore'],  { queryParams: { search: this.innerSearchTerm } });
   }
