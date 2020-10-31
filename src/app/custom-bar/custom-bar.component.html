@@ -13,14 +13,14 @@
         [placeholder]="!showDropDown?'Search Google or type a URL':''"
         (keyup)="onSearchBarKeyUp($event)"
         (keydown)="onSearchBarKeyDown($event)"
-
+        autocomplete="off"
         #searchBar
         id="searchbar"
         appClickOutside
         (clickOutside)="showDropDown=false"
         (click) = "onSearchBarClick()"
         class="searchbar"
-        type="search"
+        type="text"
         [(ngModel)]="searchTerm"
         >
         <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
@@ -32,7 +32,7 @@
             <div  (mouseover)="onMouseOver(i)"
             #suggestions
             [ngClass]="index == i ? 'item-shade' : 'null'"
-            (click)="selectValue(s)"
+            (click)="onItemClick(s)"
             class="item"
             *ngFor="let s of searchList | searchFilter: innerSearchTerm; let i = index">
             <div class="icon-div-left-item "><i class="material-icons icon-clock">access_time</i></div>
