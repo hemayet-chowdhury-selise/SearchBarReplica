@@ -18,40 +18,40 @@ export class CustomBarComponent implements OnInit {
   @ViewChildren('suggestions') private boxes: QueryList<ElementRef>;
   @ViewChild('searchBar') private bar: ElementRef;
 
-  showDropDown = false;
-  searchTerm = "";
-  innerSearchTerm="";
+  showDropDown: boolean = false;
+  searchTerm: string = "";
+  innerSearchTerm: string="";
   index: number = 0;
-  hoverme = true;
-  focusFlag = false;
-  searchList ;
+  hoverme: boolean = true;
+  focusFlag: boolean = false;
+  searchList: string[] ;
 
   constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.searchList;
+    this.searchList = this.dataService.getList();
 
   }
 
   //arrow navigation functions
 
-  onSearchBarClick(){
+  onSearchBarClick(): void{
     this.innerSearchTerm = this.searchTerm;
     this.showDropDown = true;
     this.index = 0;
   }
 
-  onMouseOver(index: number){
+  onMouseOver(index: number): void{
 
     this.index = index;
 
   }
 
-  closeDropDown(){
+  closeDropDown(): void{
     this.showDropDown = false;
   }
 
-  selectValue(s){
+  selectValue(s): void{
     var res = s.split(" ");
     res = res.slice(1, res.length-1);
     res = res.join(' ');
@@ -60,7 +60,7 @@ export class CustomBarComponent implements OnInit {
 
   }
 
-  browseValue(s){
+  browseValue(s): void{
     var res = s.split(" ");
     res = res.slice(1, res.length-1);
     res = res.join(' ');
@@ -71,7 +71,7 @@ export class CustomBarComponent implements OnInit {
 
   }
 
-  onSearchBarKeyDown(event){
+  onSearchBarKeyDown(event): void{
     console.log(event.key);
     if(event.key=="ArrowDown"){
       this.index = (this.index+1)%this.boxes.toArray().length;
@@ -97,25 +97,25 @@ export class CustomBarComponent implements OnInit {
 
 
 
-  onSearchBarKeyUp(event){
-    console.log(event.key);
+  onSearchBarKeyUp(event): void{
+
     if(event.key=="ArrowDown"){
      // this.index = (this.index+1)%this.boxes.toArray().length;
     //  this.browseValue(this.boxes.toArray()[this.index].nativeElement.textContent);
-
+      console.log(event.key);
     }
     else if(event.key=="ArrowUp"){
 
       //if(this.index<=0) this.index = this.boxes.toArray().length-1;
      // else this.index=((this.index-1)%this.boxes.toArray().length);
       // this.selectValue(this.boxes.toArray()[this.index].nativeElement.textContent);
-
+      console.log(event.key);
     }
     else if(event.key=="Enter"){
 
       this.selectValue(this.boxes.toArray()[this.index].nativeElement.textContent);
       this.innerSearchTerm = this.searchTerm;
-      this.router.navigate(['/results'],  { queryParams: { search: this.innerSearchTerm } });
+      this.router.navigate(['/readmore'],  { queryParams: { search: this.innerSearchTerm } });
 
     }
     else if(event.key=="ArrowLeft"){
@@ -142,7 +142,7 @@ export class CustomBarComponent implements OnInit {
   }
 
 
-  removeItem(event: Event){
+  removeItem(event: Event): void{
     event.stopPropagation();
 
     this.searchList.splice(this.index,1);

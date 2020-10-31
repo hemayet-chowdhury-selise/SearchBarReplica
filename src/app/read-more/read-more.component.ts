@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-read-more',
@@ -7,12 +7,10 @@ import { Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular
 })
 export class ReadMoreComponent implements OnInit {
 
-  @ContentChild("readMore", { read: ElementRef }) readMore: ElementRef;
-
   @ViewChild('targetDiv') targetDiv : ElementRef;
 
   extended: boolean = false;
-  necessary: boolean = false;
+  showReadMore: boolean = false;
 
 
   constructor(private elementRef: ElementRef) { }
@@ -21,39 +19,37 @@ export class ReadMoreComponent implements OnInit {
     setTimeout(()=>{
       console.log(this.targetDiv.nativeElement.offsetHeight+" "+this.targetDiv.nativeElement.scrollHeight);
 
-      this.necessary = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
-      if(this.necessary==false) this.extended = false;
+      // this.showReadMore = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
+      this.showReadMore = this.checkOverflow(this.targetDiv);
+      if(this.showReadMore==false) this.extended = false;
 
-      console.log("before resize"+ this.necessary);
+      console.log("before resize"+ this.showReadMore);
     });
   }
 
 
 
-  onResize(){
-    this.necessary = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
-    if(this.necessary==false) this.extended = false;
-    console.log("just resized"+ this.necessary);
+  onResize(): void{
+   // this.showReadMore = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
+    this.showReadMore = this.checkOverflow(this.targetDiv);
+    if(this.showReadMore==false) this.extended = false;
+    console.log("just resized"+ this.showReadMore);
 
   }
 
 
 
-  toggleExtended(){
+  toggleExtended() : void{
     this.extended = !this.extended;
-    this.necessary = !this.necessary;
+    this.showReadMore = !this.showReadMore;
 
   }
 
-  checkOverflow (element): boolean {
-
-
-    if (element.offsetHeight < element.scrollHeight ||
-        element.offsetWidth < element.scrollWidth) {
+  checkOverflow (element: ElementRef): boolean {
+    if (element.nativeElement.offsetHeight < element.nativeElement.scrollHeight ||
+        element.nativeElement.offsetWidth < element.nativeElement.scrollWidth) {
       return true;
     } else {
-
-
       return false;
     }
   }

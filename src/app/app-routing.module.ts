@@ -5,8 +5,8 @@ import { DummyContentComponent } from './dummy-content/dummy-content.component';
 import { ReadMoreComponent } from './read-more/read-more.component';
 
 const routes: Routes = [
-  { path: '', component:  DummyContentComponent},
-{ path: 'results', component: CustomBarComponent }];
+  {path: '', component: CustomBarComponent},
+  { path: 'readmore', component:  DummyContentComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
