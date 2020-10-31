@@ -29,7 +29,7 @@ export class CustomBarComponent implements OnInit {
   constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.getList();
+    this.searchList = this.dataService.getList;
 
   }
 

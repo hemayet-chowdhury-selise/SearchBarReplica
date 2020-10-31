@@ -11,8 +11,11 @@ export class DataService {
 
   constructor() { }
 
-  getList(){
+
+  public get getList() : string[] {
     return JSON.parse(JSON.stringify(this.searchList));
   }
+
+
 
 }
