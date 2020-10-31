@@ -8,6 +8,8 @@ import { CustomBarComponent } from './custom-bar/custom-bar.component';
 import { SearchFilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { ClickOutsideDirective } from './click-outside.directive';
+import { ReadMoreComponent } from './read-more/read-more.component';
+import { DummyContentComponent } from './dummy-content/dummy-content.component';
 
 
 @NgModule({
@@ -19,6 +21,10 @@ import { ClickOutsideDirective } from './click-outside.directive';
     SearchFilterPipe,
 
     ClickOutsideDirective,
+
+    ReadMoreComponent,
+
+    DummyContentComponent,
 
 
   ],
