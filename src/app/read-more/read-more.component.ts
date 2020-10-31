@@ -18,23 +18,16 @@ export class ReadMoreComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(()=>{
       console.log(this.targetDiv.nativeElement.offsetHeight+" "+this.targetDiv.nativeElement.scrollHeight);
-
-      // this.showReadMore = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
       this.showReadMore = this.checkOverflow(this.targetDiv);
       if(this.showReadMore==false) this.extended = false;
-
-      console.log("before resize"+ this.showReadMore);
     });
   }
 
 
 
   onResize(): void{
-   // this.showReadMore = this.targetDiv.nativeElement.offsetHeight<this.targetDiv.nativeElement.scrollHeight;
     this.showReadMore = this.checkOverflow(this.targetDiv);
     if(this.showReadMore==false) this.extended = false;
-    console.log("just resized"+ this.showReadMore);
-
   }
 
 

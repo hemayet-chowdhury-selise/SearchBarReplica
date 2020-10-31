@@ -32,12 +32,12 @@
             <div  (mouseover)="onMouseOver(i)"
             #suggestions
             [ngClass]="index == i ? 'item-shade' : 'null'"
-            (click)="onItemClick(s)"
+
             class="item"
-            *ngFor="let s of searchList | searchFilter: innerSearchTerm; let i = index">
+            *ngFor="let s of searchList | searchFilter: innerSearchTerm; let i = index"
+            (click)="onItemClick()">
             <div class="icon-div-left-item "><i class="material-icons icon-clock">access_time</i></div>
               {{s}}
-            <!-- <div class="icon-div-right-item "><div *ngIf="index==i" class="icon-surround"><div (click)="removeItem($event)" class="material-icons icon-clear">clear</div></div></div> -->
             </div>
           </div>
         </div>
