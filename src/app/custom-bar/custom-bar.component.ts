@@ -29,7 +29,7 @@ export class CustomBarComponent implements OnInit {
   constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.getList();
+    this.searchList = this.dataService.getList;
 
   }
 
@@ -146,6 +146,12 @@ export class CustomBarComponent implements OnInit {
     event.stopPropagation();
 
     this.searchList.splice(this.index,1);
+  }
+
+  onItemClick(s : string): void{
+    this.selectValue(s);
+    this.innerSearchTerm = this.searchTerm;
+    this.router.navigate(['/readmore'],  { queryParams: { search: this.innerSearchTerm } });
   }
 
 
