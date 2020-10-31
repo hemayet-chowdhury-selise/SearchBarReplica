@@ -1,0 +1,44 @@
+$contentHeight: 100px;
+$fadeHeight: 80%;
+
+
+span{
+  cursor: pointer;
+  color: #33691e;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Roboto",Arial,sans-serif;
+  margin-top: 10px;
+
+}
+
+.notExtended{
+ max-height: $contentHeight;
+ overflow: hidden;
+ text-overflow: clip;
+ position: relative;
+
+}
+
+.fade{
+
+  &:after{
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent $fadeHeight, white);
+
+   }
+}
+
+
+.span-container{
+  display: flex;
+  justify-content: center;
+}
+
+

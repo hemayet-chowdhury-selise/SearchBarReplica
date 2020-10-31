@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CustomBarComponent } from './custom-bar/custom-bar.component';
+import { DummyContentComponent } from './dummy-content/dummy-content.component';
+import { ReadMoreComponent } from './read-more/read-more.component';
 
 const routes: Routes = [
-  { path: '', component:  CustomBarComponent},
+  { path: '', component:  DummyContentComponent},
 { path: 'results', component: CustomBarComponent }];
 
 @NgModule({
