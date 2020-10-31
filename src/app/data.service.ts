@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   searchList = [
-    'angular', 'react', 'vue', 'node', 'angular material', 'semantic html', 'hyper text mark-up language'
+    'angular', 'react', 'node', 'angular material', 'semantic html', 'hyper text mark-up language'
   ];
 
   constructor() { }
 
   getList(){
-    return [...this.searchList];
+    return JSON.parse(JSON.stringify(this.searchList));
   }
 
 }
