@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { ReadMoreComponent } from './read-more/read-more.component';
 import { DummyContentComponent } from './dummy-content/dummy-content.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DummyContentComponent } from './dummy-content/dummy-content.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

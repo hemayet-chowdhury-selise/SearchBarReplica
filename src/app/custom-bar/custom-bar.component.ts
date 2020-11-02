@@ -24,12 +24,15 @@ export class CustomBarComponent implements OnInit {
   index: number = 0;
   hoverme: boolean = true;
   focusFlag: boolean = false;
-  searchList: string[] ;
+  searchList: string[] = [] ;
 
   constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.searchList = this.dataService.getList;
+    this.dataService.getList.subscribe(data =>{
+
+      this.searchList = data.map(item=>item.name);
+    });
 
   }
 
