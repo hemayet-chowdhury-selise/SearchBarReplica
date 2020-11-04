@@ -36,8 +36,6 @@ export class CustomBarComponent implements OnInit {
 
   }
 
-  //arrow navigation functions
-
   onSearchBarClick(): void{
     this.innerSearchTerm = this.searchTerm;
     this.showDropDown = true;
