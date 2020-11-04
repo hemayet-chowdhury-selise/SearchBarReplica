@@ -1,9 +1,9 @@
 
-<div (mouseover)="showIcons=true" (mouseout)="showIcons=false" class="note-card">
+<div (mouseenter)="showIcons=true" (mouseleave)="showIcons=false" class="note-card">
   <div class="title">{{title}}</div>
   <div class="note">{{note}}</div>
 
-  <div *ngIf="showIcons" class="flat-div-note" >
+  <div *ngIf="showIcons" class="flat-div-note"  >
     <span class="material-icons icon-note">
       add_alert
     </span>
