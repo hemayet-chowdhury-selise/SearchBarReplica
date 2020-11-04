@@ -1,17 +1,20 @@
 .note-card{
-
+  display:flex;
+  flex-direction: column;
   font-size: 0.875rem;
   font-weight: 200;
   font-family: 'Google Sans',Arial,sans-serif;
   border: 1px solid #ccc;
   padding-right: 40px;
   padding-left: 10px;
+  padding-top: 20px;
   border-radius: 0.4rem 0.4rem;
   margin: 7px;
-  margin-top: 20px;
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
-  min-height: 130px;
+  min-height: 100px;
   min-width: 180px;
+  max-width: 180px;
+  overflow: hidden; text-overflow: fade(10px)
 
 }
 
@@ -20,5 +23,24 @@
   font-size: 1rem;
   font-family: 'Google Sans',Arial,sans-serif;
 }
+.note{
+  margin-top: 10px;
+  overflow: hidden;
+}
 
+.flat-div-note{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.icon-note{
+  font-size: 18px;
+  color: grey;
+
+
+
+ }
 

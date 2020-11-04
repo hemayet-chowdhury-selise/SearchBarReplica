@@ -9,6 +9,7 @@ export class NoteComponent implements OnInit {
 
   @Input('title') title: String;
   @Input('note') note: String;
+  showIcons:boolean =  false;
 
   constructor() { }
 

@@ -31,8 +31,17 @@ export class TodoComponent implements OnInit {
 
 
   onAddNote(){
-    console.log("still in component. adding started");
-    this.postService.addPost(this.title, this.note);
+    if(this.title===undefined && this.note===undefined){
+      return;
+      }
+    else if(this.title=="" && this.note==""){
+      return;
+    }
+    else{
+        this.postService.addPost(this.title, this.note);
+    }
+
+
   }
 
   ngOnDestroy(): void {
@@ -57,7 +66,12 @@ export class TodoComponent implements OnInit {
      }
      else{
       this.onAddNote();
+
        this.showTitle= false;
+       this.title="";
+       this.note="";
+       let textArea = this.noteInput.nativeElement;
+       textArea.style.height = '16px';
 
      }
   }

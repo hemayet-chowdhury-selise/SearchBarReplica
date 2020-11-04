@@ -7,10 +7,12 @@
 }
 
 .note-container{
-
+  margin-top: 40px;
   display: flex;
   justify-content: left;
   align-items: center;
+  max-width: 100%;
+  flex-wrap: wrap;
 
 }
 

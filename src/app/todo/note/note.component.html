@@ -1,6 +1,25 @@
 
-<div class="note-card">
-  <p class="title">{{title}}</p>
-  <p>{{note}}</p>
+<div (mouseover)="showIcons=true" (mouseout)="showIcons=false" class="note-card">
+  <div class="title">{{title}}</div>
+  <div class="note">{{note}}</div>
+
+  <div *ngIf="showIcons" class="flat-div-note" >
+    <span class="material-icons icon-note">
+      add_alert
+    </span>
+    <span class="material-icons icon-note">
+      person_add_alt_1
+    </span>
+    <span class="material-icons icon-note">
+      palette
+    </span>
+    <span class="material-icons icon-note">
+      image
+    </span>
+    <span class="material-icons icon-note">
+      more_vert
+    </span>
+
+   </div>
 </div>
 
