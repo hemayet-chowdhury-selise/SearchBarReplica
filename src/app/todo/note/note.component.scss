@@ -1,0 +1,51 @@
+.note-card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 200;
+  font-family: 'Google Sans',Arial,sans-serif;
+  border: 1px solid #ccc;
+  padding-right: 40px;
+  padding-left: 10px;
+  padding-top: 20px;
+  border-radius: 0.4rem 0.4rem;
+  margin: 7px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+  min-height: 100px;
+  width: 180px;
+  padding-bottom: 40px;
+  overflow-wrap: break-word;
+
+}
+
+.title{
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: 'Google Sans',Arial,sans-serif;
+}
+.note{
+  margin-top: 10px;
+  width: auto;
+
+  display:flex;
+  flex-direction: column;
+  height: auto;
+
+}
+
+.flat-div-note{
+  position: absolute;
+  bottom: 10px;
+
+}
+
+.icon-note{
+  font-size: 18px;
+  color: grey;
+  margin-right: 20px;
+
+
+
+ }
+

@@ -1,0 +1,18 @@
+
+<div class="note-detail-card">
+  <label for="title">Title</label>
+  <div [attr.contenteditable]="editFlag" #titleInput class="inside-card" id="title">{{post.title}}</div>
+  <label for="note">Note</label>
+  <div [attr.contenteditable]="editFlag" #noteInput class="inside-card" id="note">{{post.note}}</div>
+  <div class="flat-div">
+    <span class="created">
+      Created at {{post.created | date:'medium'}}
+    </span>
+
+    <span (click)="onDelete()" class="flat-container">Delete</span>
+    <span (click)="onEditSave()" class="flat-container">{{editSaveState}}</span>
+    <span (click)="onDoneCancel()" class="flat-container">{{doneCancelState}}</span>
+
+     </div>
+</div>
+

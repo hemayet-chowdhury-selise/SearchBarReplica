@@ -1,0 +1,50 @@
+
+<app-custom-bar></app-custom-bar>
+
+<div class="container">
+    <div class="input-card" >
+
+
+     <div *ngIf="showTitle==true" #titleInput id="titleInput" contenteditable="true" class="title-note-resizable"></div>
+
+     <div #noteInput id ="noteInput" contenteditable="true" class="input-note-resizable"></div>
+
+
+
+
+
+      <div *ngIf="showTitle" class="flat-div">
+        <span class="material-icons icon">
+          add_alert
+        </span>
+        <span class="material-icons icon">
+          person_add_alt_1
+        </span>
+        <span class="material-icons icon">
+          palette
+        </span>
+        <span class="material-icons icon">
+          image
+        </span>
+        <span class="material-icons icon">
+          more_vert
+        </span>
+        <span class="icon-close">
+          Close
+        </span>
+      </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+<div class="note-container">
+    <app-note (click)="onViewNote(i)" *ngFor="let post of postList; let i=index" [title]="post.title" [note]="post.note"></app-note>
+</div>
+
+
+
