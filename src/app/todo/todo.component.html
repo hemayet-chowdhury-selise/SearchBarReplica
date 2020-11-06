@@ -1,49 +1,38 @@
 
-
 <div class="container">
     <div class="input-card" >
-     <input [(ngModel)]="title"
-     autocomplete="off"
-     id="titleInput"
-     #titleInput
-     *ngIf="showTitle==true"
-     placeholder="Title"
-     class="input-title"
-     type="text">
-
-    <textarea [(ngModel)]="note"
-     id="noteInput"
-     #noteInput
-     autocomplete="off"
-     (click)="showTitle=true"
-     placeholder="Take a note..."
-     class="input-note"
-     (keydown)="autogrow()"
-     type="text">
-
-     </textarea>
 
 
-     <div *ngIf="showTitle" class="flat-div">
-      <span class="material-icons icon">
-        add_alert
-      </span>
-      <span class="material-icons icon">
-        person_add_alt_1
-      </span>
-      <span class="material-icons icon">
-        palette
-      </span>
-      <span class="material-icons icon">
-        image
-      </span>
-      <span class="material-icons icon">
-        more_vert
-      </span>
-      <span class="icon-close">
-        Close
-      </span>
-     </div>
+     <div *ngIf="showTitle==true" #titleInput id="titleInput" contenteditable="true" class="title-note-resizable"></div>
+
+     <div #noteInput id ="noteInput" contenteditable="true" class="input-note-resizable"></div>
+
+
+
+
+
+      <div *ngIf="showTitle" class="flat-div">
+        <span class="material-icons icon">
+          add_alert
+        </span>
+        <span class="material-icons icon">
+          person_add_alt_1
+        </span>
+        <span class="material-icons icon">
+          palette
+        </span>
+        <span class="material-icons icon">
+          image
+        </span>
+        <span class="material-icons icon">
+          more_vert
+        </span>
+        <span class="icon-close">
+          Close
+        </span>
+      </div>
+
+
 
     </div>
 
@@ -52,7 +41,8 @@
 
 
 <div class="note-container">
-
-  <app-note *ngFor="let post of postList" [title]="post.title" [note]="post.note"></app-note>
+    <app-note (click)="onViewNote(i)" *ngFor="let post of postList; let i=index" [title]="post.title" [note]="post.note"></app-note>
 </div>
+
+
 

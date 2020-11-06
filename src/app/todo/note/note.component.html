@@ -1,7 +1,10 @@
 
 <div (mouseenter)="showIcons=true" (mouseleave)="showIcons=false" class="note-card">
   <div class="title">{{title}}</div>
-  <div class="note">{{note}}</div>
+  <app-read-more>
+    <div class="note">{{note}}</div>
+  </app-read-more>
+
 
   <div *ngIf="showIcons" class="flat-div-note"  >
     <span class="material-icons icon-note">

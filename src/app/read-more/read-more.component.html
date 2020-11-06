@@ -7,5 +7,5 @@
 
 
 
-<div #readMore *ngIf="showReadMore" class="span-container"><span (click)="toggleExtended()">read more</span></div>
-<div *ngIf="extended" class="span-container"><span   (click)="toggleExtended()">collapse</span></div>
+<div #readMore *ngIf="showReadMore" class="span-container"><span (click)="toggleExtended($event)">read more</span></div>
+<div *ngIf="extended" class="span-container"><span   (click)="toggleExtended($event)">collapse</span></div>

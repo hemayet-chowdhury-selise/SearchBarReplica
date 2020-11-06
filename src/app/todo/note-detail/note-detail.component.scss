@@ -1,0 +1,75 @@
+.note-detail-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  width: 40%;
+  border: 1px solid #ccc;
+  padding-top: 40px ;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 0.4rem 0.4rem;
+  margin: 80px auto;
+  font-family: 'Google Sans',Arial,sans-serif;
+  font-weight: 575;
+  color: grey;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+  min-height: 200px;
+
+}
+
+.inside-card{
+
+  width: 94%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 0.4rem 0.4rem;
+  font-family: 'Google Sans',Arial,sans-serif;
+  font-weight: 575;
+  color: grey;
+  opacity: 1;
+  &:focus-within{
+    outline-color:rgba(60,64,67,0.302)
+  }
+  overflow-wrap: break-word;
+
+
+}
+
+label{
+  opacity: 0.7;
+}
+
+.flat-div{
+margin-top: auto;
+display: flex;
+margin-bottom: 5px;
+bottom: 0;
+font-size: 14px;
+font-weight: 600;
+}
+
+.flat-container{
+cursor: pointer;
+margin:0 5px;
+padding: 5px 8px;
+border-radius: 4px;
+&:hover{
+  background-color:	#D3D3D3;
+}
+
+}
+
+.created{
+  flex-grow: 10;
+  opacity: 0.7;
+  width: 50%;
+  padding: 5px;
+
+
+}
+
+

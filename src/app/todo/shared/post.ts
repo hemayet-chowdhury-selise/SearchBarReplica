@@ -1,4 +1,5 @@
 export interface Post{
   title: string,
-  note: string
+  note: string,
+  created: Date
 }

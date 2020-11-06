@@ -34,6 +34,7 @@ export class ReadMoreComponent implements OnInit {
 
 
   toggleExtended() : void{
+    event.stopPropagation();
     this.extended = !this.extended;
     this.showReadMore = !this.showReadMore;
 

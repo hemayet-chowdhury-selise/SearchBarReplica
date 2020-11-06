@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from './shared/post';
 import { PostService } from './shared/post.service';
@@ -18,7 +19,7 @@ export class TodoComponent implements OnInit {
   showTitle:boolean =  false;
   postListSubscription: Subscription;
 
-  constructor(private postService: PostService, private elementRef:ElementRef) { }
+  constructor(private postService: PostService, private elementRef:ElementRef, private router: Router) { }
 
 
 
@@ -31,10 +32,10 @@ export class TodoComponent implements OnInit {
 
 
   onAddNote(){
-    if(this.title===undefined && this.note===undefined){
-      return;
-      }
-    else if(this.title=="" && this.note==""){
+    this.note  = this.noteInput.nativeElement.textContent;
+    this.title  = this.titleInput.nativeElement.textContent;
+
+    if((this.title=="" || this.title==undefined) && (this.note=="" || this.note==undefined)){
       return;
     }
     else{
@@ -50,21 +51,21 @@ export class TodoComponent implements OnInit {
     this.postListSubscription.unsubscribe();
   }
 
-  autogrow() {
-    let textArea = this.noteInput.nativeElement;
+  onViewNote(id){
+    this.router.navigate(['/note/'+id]);
+  }
 
-    textArea.style.height = 'auto';
-
-    textArea.style.height = textArea.scrollHeight + 'px';
-}
 
   @HostListener('document:mousedown', ['$event'])
   onGlobalClick(event): void {
      if (this.noteInput.nativeElement.contains(event.target) || this.titleInput.nativeElement.contains(event.target) ) {
         // clicked outside => close dropdown list
      this.showTitle = true;
+
+
      }
      else{
+       var tempNote: ElementRef = this.noteInput.nativeElement;
       this.onAddNote();
 
        this.showTitle= false;
@@ -72,8 +73,9 @@ export class TodoComponent implements OnInit {
        this.note="";
        let textArea = this.noteInput.nativeElement;
        textArea.style.height = '16px';
-
-     }
+       this.noteInput.nativeElement.innerHTML = "";
+       this.titleInput.nativeElement.innerHTML = "";
+      }
   }
 
 }

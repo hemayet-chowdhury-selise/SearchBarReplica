@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { AutoResizeDirective } from './auto-resize.directive';
 import { NoteComponent } from './todo/note/note.component';
+import { NoteDetailComponent } from './todo/note-detail/note-detail.component';
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import { NoteComponent } from './todo/note/note.component';
     AutoResizeDirective,
 
     NoteComponent,
+
+    NoteDetailComponent,
 
 
   ],

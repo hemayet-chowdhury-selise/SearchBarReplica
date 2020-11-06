@@ -10,8 +10,11 @@
   margin-top: 40px;
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: flex-start;
   max-width: 100%;
+  margin-top: 20px;
+  height: auto;
+  overflow-wrap: break-word;
   flex-wrap: wrap;
 
 }
@@ -23,6 +26,7 @@
   align-items: center;
 
 }
+
 
 
 
@@ -54,6 +58,7 @@
 }
 
 .input-note{
+  position: relative;
   margin-top: 2px;
   height: 16px;
   resize: none;
@@ -64,9 +69,11 @@
   font-weight: 400;
 
   border:none;
-  width:100%;
+  width:200px;
   font-size:16px;
   outline: none;
+  overflow-wrap: break-word;
+
   &::placeholder{
     font-weight: 600;
     line-height: 1.25rem;
@@ -76,22 +83,35 @@
     opacity: .74; }
 }
 
-.input-title{
-  margin-bottom: 20px;
+.input-note-resizable{
+  outline: none;
   letter-spacing: .01428571em;
   font-family: 'Google Sans',Arial,sans-serif;
   font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.25rem;
-  border:none;
-  width:90%;
-  font-size:16px;
+  font-weight: 550;
+  color: gray;
+  opacity: 0.80;
+  overflow-wrap: break-word;
+}
+
+.input-note-resizable[contenteditable]:empty::before {
+  content: "Take a note...";
+  color: gray;
+}
+
+.title-note-resizable{
   outline: none;
-  &::placeholder{
-    font-weight: 600;
-    line-height: 1.25rem;
-    font-size: 0.95rem;
-    font-style: bold;
-    font-family: 'Google Sans',Arial,sans-serif;
-    opacity: .74; }
+  letter-spacing: .01428571em;
+  font-family: 'Google Sans',Arial,sans-serif;
+  font-size: .875rem;
+  font-weight: 550;
+  color: gray;
+  opacity: 0.80;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+}
+
+.title-note-resizable[contenteditable]:empty::before {
+  content: "Title";
+  color: gray;
 }
