@@ -3,6 +3,26 @@ $clrHover : #d3d3d3;
 $clrIcon : grey;
 $clrBorder : #dcdcdc;
 
+.bar{
+  margin-top: -50px;
+  background-color: white;
+  position: fixed;
+  box-shadow:0 1px 6px 0 rgba(32, 33, 36, .28);
+  width:561px;
+  border-radius:24px;
+  border:1px solid $clrBorder;
+  border-collapse: separate;
+  overflow: hidden;
+  z-index: 2;
+
+  &:focus-within{
+    outline:none;
+    border-radius: 24px;
+    overflow: hidden;
+
+  }
+}
+
 @mixin iconMargins($margin-left, $margin-right, $margin-top){
   margin-left: $margin-left ;
   margin-right: $margin-right;
@@ -75,20 +95,7 @@ $clrBorder : #dcdcdc;
 
 }
 
-.bar{
-  box-shadow:0 1px 6px 0 rgba(32, 33, 36, .28);
-  margin:0 auto;
-  width:561px;
-  border-radius:24px;
-  border:1px solid $clrBorder;
-  border-collapse: separate;
-  overflow: hidden;
-  &:focus-within{
-    outline:none;
-    border-radius: 24px;
-    overflow: hidden;
-  }
-}
+
 
 .searchbar{
   height:40px;
