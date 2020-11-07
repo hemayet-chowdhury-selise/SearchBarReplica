@@ -111,7 +111,7 @@ $clrBorder : #dcdcdc;
 
 }
 .clear{
-
+  cursor: pointer;
   position:relative;
   top:6px;
   left:55px;
@@ -121,6 +121,7 @@ $clrBorder : #dcdcdc;
   &:hover{
     background: #d3d3d3;
   }
+
 }
 
 
@@ -132,9 +133,11 @@ $clrBorder : #dcdcdc;
 }
 
 .item-text{
-  width: 50%;
+  max-height: 20px;
+  width:90%;
   text-overflow: ellipsis;
   overflow: hidden;
+
 }
 
 .item-shade{

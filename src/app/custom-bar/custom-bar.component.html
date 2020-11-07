@@ -6,7 +6,8 @@
 
 </div> -->
 
-  <div  class="bar">
+  <div appClickOutside
+  (clickOutside)="showDropDown=false"  class="bar">
 
        <div class="icon-div" ><i class="material-icons icon" (click)="onClearSearch()">search</i></div>
         <input
@@ -16,15 +17,14 @@
         autocomplete="off"
         #searchBar
         id="searchbar"
-        appClickOutside
-        (clickOutside)="showDropDown=false"
+
         (click) = "onSearchBarClick()"
         class="searchbar"
         type="text"
         [(ngModel)]="searchTerm"
         >
         <!-- <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a> -->
-        <span class="material-icons clear">
+        <span (click)="onClearSearch()" class="material-icons clear">
           clear
         </span>
 
