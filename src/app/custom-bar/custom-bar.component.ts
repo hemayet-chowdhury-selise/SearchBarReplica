@@ -54,7 +54,7 @@ export class CustomBarComponent implements OnInit {
   }
 
   onClearSearch():void{
-
+    event.stopPropagation();
     console.log("clear clicked");
     this.searchTerm="";
     this.innerSearchTerm="";
