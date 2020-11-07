@@ -1,3 +1,32 @@
+
+body{
+  width: 100%;
+}
+
+img{
+  height: 38px;
+  width: 38px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.logo-title{
+  color: #5f6368;
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  margin-right: 100px;
+  margin-left: 7px;
+  font-family: 'Google Sans',Arial,sans-serif;
+}
+
+.nav-bar{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  height: 50px;
+}
+
 .container{
   margin-top: 50px;
   display: flex;
@@ -20,6 +49,7 @@
 }
 
 .flat-div{
+  position: relative;
   margin-top: 20px;
   display: flex;
   justify-content: left;
@@ -34,16 +64,19 @@
  margin-right: 45px;
  font-size: 18px;
  color: grey;
+ cursor: pointer;
 }
 
 
 .icon-close{
+  position:absolute;
   font-size: 0.875rem;
   color: grey;
   font-weight: 600;
   font-family: 'Google Sans',Arial,sans-serif;
-  margin-left: auto;
-  margin-right: 20px;
+  right: 0;
+  cursor: pointer;
+
 }
 
 .input-card{
@@ -91,7 +124,7 @@
   font-weight: 550;
   color: gray;
   opacity: 0.80;
-  overflow-wrap: break-word;
+   overflow-wrap: break-word;
 }
 
 .input-note-resizable[contenteditable]:empty::before {
