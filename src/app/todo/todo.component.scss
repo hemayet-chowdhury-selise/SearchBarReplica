@@ -36,11 +36,12 @@ img{
 }
 
 .note-container{
+  margin-left: 160px;
   margin-top: 40px;
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  max-width: 100%;
+  width: 80%;
   margin-top: 20px;
   height: auto;
   overflow-wrap: break-word;

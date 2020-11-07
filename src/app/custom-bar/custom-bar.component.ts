@@ -54,8 +54,11 @@ export class CustomBarComponent implements OnInit {
   }
 
   onClearSearch():void{
+
+    console.log("clear clicked");
     this.searchTerm="";
     this.innerSearchTerm="";
+
   }
 
   onMouseOver(index: number): void{
