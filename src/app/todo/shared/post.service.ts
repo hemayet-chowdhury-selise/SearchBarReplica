@@ -7,9 +7,9 @@ import { Post } from './post';
 })
 export class PostService {
   postList: Post[] =[ {title: 'First Note', note: 'Testing things out', created: new Date()},
-  {title: 'Second Note', note: 'Testing things again', created: new Date()},
-  {title: 'Third Note', note: 'Time is a flat circle', created: new Date()},
-  {title: 'Third Note', note: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', created: new Date()}
+  {title: 'Second Note', note: 'Kept theme similar to Google Keep, thereby, all the whiteness.', created: new Date()},
+  {title: 'Third Note', note: 'Edit and make me 4th note', created: new Date()},
+  {title: 'Third Note', note: 'Architecture of our search bar is different from theirs due to obvious reasons.', created: new Date()},
 ];
 
 public postListMessage = new Subject<Post[]>();
@@ -53,5 +53,6 @@ public postListMessage = new Subject<Post[]>();
     this.postList.splice(id,1);
     this.postListMessage.next(JSON.parse(JSON.stringify(this.postList)));
   }
+
 
 }

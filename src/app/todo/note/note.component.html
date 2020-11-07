@@ -1,5 +1,5 @@
 
-<div (mouseenter)="showIcons=true" (mouseleave)="showIcons=false" class="note-card">
+<div (mouseenter)="showIcons=true" (mouseleave)="onToggleIcons()" class="note-card">
   <div class="title">{{title}}</div>
   <app-read-more>
     <div class="note">{{note}}</div>
@@ -7,22 +7,29 @@
 
 
   <div *ngIf="showIcons" class="flat-div-note"  >
-    <span class="material-icons icon-note">
+    <span class="material-icons icon-note" (click)="onOtherIconClick($event)">
       add_alert
     </span>
-    <span class="material-icons icon-note">
+    <span class="material-icons icon-note" (click)="onOtherIconClick($event)">
       person_add_alt_1
     </span>
-    <span class="material-icons icon-note">
+    <span class="material-icons icon-note" (click)="onOtherIconClick($event)">
       palette
     </span>
-    <span class="material-icons icon-note">
+    <span class="material-icons icon-note" (click)="onOtherIconClick($event)">
       image
     </span>
-    <span class="material-icons icon-note">
+    <span #more class="material-icons icon-note" (click)="onOptionsClick($event)">
       more_vert
     </span>
 
    </div>
+
+   <div (clickOutside)="showModal=false" *ngIf="showModal" #optionsDiv id="options" class="modal" onClick="onOptionSelected($event)">
+    <option (click)="onOptionsSelected($event)" class="option">Edit Note</option>
+    <option (click)="onItemDelete($event)" class="option">Delete Note</option>
+
+  </div>
 </div>
+
 

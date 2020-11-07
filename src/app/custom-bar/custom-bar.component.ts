@@ -3,6 +3,8 @@ import {SearchFilterPipe} from '../filter.pipe';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { PostService } from '../todo/shared/post.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-custom-bar',
@@ -25,21 +27,35 @@ export class CustomBarComponent implements OnInit {
   hoverme: boolean = true;
   focusFlag: boolean = false;
   searchList: string[] = [] ;
+  searchSubscription: Subscription;
 
-  constructor(private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
+  constructor(private postService: PostService, private dataService : DataService, private ElementRef:ElementRef, private router: Router) { }
 
   ngOnInit(): void {
-    this.dataService.getList.subscribe(data =>{
+    // this.dataService.getList.subscribe(data =>{
 
-      this.searchList = data.map(item=>item.name);
+    //   this.searchList = data.map(item=>item.name);
+    // });
+
+    this.searchList = this.postService.getPostList.map(item=>item.note);
+    this. searchSubscription = this.postService.postListMessage.subscribe((postList)=>{
+      this.searchList = postList.map(item=>item.note);
     });
 
   }
 
   onSearchBarClick(): void{
+    event.stopPropagation();
+    console.log("i was clicked");
+    this.bar.nativeElement.focus();
     this.innerSearchTerm = this.searchTerm;
     this.showDropDown = true;
     this.index = 0;
+  }
+
+  onClearSearch():void{
+    this.searchTerm="";
+    this.innerSearchTerm="";
   }
 
   onMouseOver(index: number): void{
@@ -152,7 +168,14 @@ export class CustomBarComponent implements OnInit {
   onItemClick(s): void{
     this.selectValue(this.boxes.toArray()[this.index].nativeElement.textContent);
     this.innerSearchTerm = this.searchTerm;
-    this.router.navigate(['/readmore'],  { queryParams: { search: this.innerSearchTerm } });
+    console.log("note id is "+ this.searchList.indexOf(s));
+    this.router.navigate(['/note',this.searchList.indexOf(s)],  { queryParams: { search: this.innerSearchTerm } });
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.searchSubscription.unsubscribe();
   }
 
 

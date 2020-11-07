@@ -1,5 +1,9 @@
 
-<app-custom-bar></app-custom-bar>
+<div class="nav-bar">
+  <img src="../../assets/images/keep-icon.png" alt=""><div class="logo-title">Keep</div>
+  <app-custom-bar></app-custom-bar>
+</div>
+
 
 <div class="container">
     <div class="input-card" >
@@ -26,9 +30,7 @@
         <span class="material-icons icon">
           image
         </span>
-        <span class="material-icons icon">
-          more_vert
-        </span>
+
         <span class="icon-close">
           Close
         </span>
@@ -43,8 +45,9 @@
 
 
 <div class="note-container">
-    <app-note (click)="onViewNote(i)" *ngFor="let post of postList; let i=index" [title]="post.title" [note]="post.note"></app-note>
-</div>
+    <app-note (click)="onViewNote(i)" *ngFor="let post of postList; let i=index" [title]="post.title" [note]="post.note" [postId]=i></app-note>
+
+   </div>
 
 
 

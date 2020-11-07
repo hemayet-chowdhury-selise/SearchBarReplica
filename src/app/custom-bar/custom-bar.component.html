@@ -8,9 +8,9 @@
 
   <div  class="bar">
 
-       <div class="icon-div" ><i class="material-icons icon">search</i></div>
+       <div class="icon-div" ><i class="material-icons icon" (click)="onClearSearch()">search</i></div>
         <input
-        [placeholder]="!showDropDown?'Search Google or type a URL':''"
+        [placeholder]="!showDropDown?'Search':''"
         (keyup)="onSearchBarKeyUp($event)"
         (keydown)="onSearchBarKeyDown($event)"
         autocomplete="off"
@@ -23,8 +23,10 @@
         type="text"
         [(ngModel)]="searchTerm"
         >
-        <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
-
+        <!-- <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a> -->
+        <span class="material-icons clear">
+          clear
+        </span>
 
         <div *ngIf="showDropDown" >
 
@@ -32,12 +34,14 @@
             <div  (mouseover)="onMouseOver(i)"
             #suggestions
             [ngClass]="index == i ? 'item-shade' : 'null'"
-
             class="item"
             *ngFor="let s of searchList | searchFilter: innerSearchTerm; let i = index"
-            (click)="onItemClick()">
+            (click)="onItemClick(s)">
             <div class="icon-div-left-item "><i class="material-icons icon-clock">access_time</i></div>
+            <div class="item-text">
               {{s}}
+            </div>
+
             </div>
           </div>
         </div>
