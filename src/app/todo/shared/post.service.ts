@@ -13,6 +13,15 @@ public postListMessage = new Subject<Post[]>();
 
   constructor() {
     var postList = localStorage.getItem("postList");
+    if(postList==null){
+      var newPostList=[{title: "First Post", note: "Yet to make everything 100% responsive", created: new Date()  },
+      {title: "Third Post", note: "Add on hover functionalities and modals. ", created: new Date()  },
+      {title: "Third Post", note: "Edit Me to make me Fourth", created: new Date()  },
+      {title: "Second Post", note: "Our search bar architecture is different from Google keep's because of obvious reasons. Our search bar architecture is different from Google keep's because of obvious reasons. Our search bar architecture is different from Google keep's because of obvious reasons.", created: new Date()  },
+    ];
+      localStorage.setItem("postList", JSON.stringify(newPostList));
+      postList= localStorage.getItem("postList");
+    }
     this.postListMessage.next(JSON.parse(postList));
    }
 
